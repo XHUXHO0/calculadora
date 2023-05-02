@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CALCULADORA</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="agregar">Agregar</string>
+    <string name="lista">Reset</string>
+    <string name="division">/</string>
+    <string name="resta">-</string>
+    <string name="suma">+</string>
+    <string name="multiplicacion">x</string>
+    <string name="gramaje">$/GM</string>
+    <string name="punto">.</string>
+    <string name="igual">=</string>
+    <string name="txt_btn_0">0</string>
+    <string name="txt_btn_1">1</string>
+    <string name="txt_btn_2">2</string>
+    <string name="txt_btn_3">3</string>
+    <string name="txt_btn_4">4</string>
+    <string name="txt_btn_5">5</string>
+    <string name="txt_btn_6">6</string>
+    <string name="txt_btn_7">7</string>
+    <string name="txt_btn_8">8</string>
+    <string name="txt_btn_9">9</string>
+
+</resources>
