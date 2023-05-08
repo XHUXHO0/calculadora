@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_7).setOnClickListener{numeroPresionado("7")}
         findViewById<Button>(R.id.btn_8).setOnClickListener{numeroPresionado("8")}
         findViewById<Button>(R.id.btn_9).setOnClickListener{numeroPresionado("9")}
+        findViewById<Button>(R.id.btn_punto).setOnClickListener{numeroPresionado(".")}
 
         findViewById<Button>(R.id.btn_suma).setOnClickListener{operacionPresionado(SUMA)}
         findViewById<Button>(R.id.btn_resta).setOnClickListener{operacionPresionado(RESTA)}
@@ -50,17 +51,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun numeroPresionado(digito: String){
 
-        if( findViewById<TextView>(R.id.tv_resultado).text  == "0" && digito != ".") {
-            findViewById<TextView>(R.id.tv_resultado).text = "$digito"
-        } else {
-            findViewById<TextView>(R.id.tv_resultado).text = "${findViewById<TextView>(R.id.tv_resultado).text}$digito"
-        }
 
-        if(operacion == NO_HAY_OPERACION){
-            num1 = findViewById<TextView>(R.id.tv_resultado).text.toString().toDouble()
-        }else{
-            num2 = findViewById<TextView>(R.id.tv_resultado).text.toString().toDouble()
-        }
+
+            if (findViewById<TextView>(R.id.tv_resultado).text == "0" && digito != ".") {
+                findViewById<TextView>(R.id.tv_resultado).text = "$digito"
+            } else {
+                if("$digito" == "."){
+                    findViewById<TextView>(R.id.tv_resultado).text = "0."
+                }else{
+                    findViewById<TextView>(R.id.tv_resultado).text =
+                        "${findViewById<TextView>(R.id.tv_resultado).text}$digito"
+                }
+            }
+
+            if (operacion == NO_HAY_OPERACION) {
+                num1 = findViewById<TextView>(R.id.tv_resultado).text.toString().toDouble()
+            } else {
+                num2 = findViewById<TextView>(R.id.tv_resultado).text.toString().toDouble()
+            }
+
+
     }
 
     private fun operacionPresionado(operacion: Int){
@@ -80,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resolvePressed(){
-        if(num1 != 0.0){
+        if(num1 != 0.0 ){
             val result = when(operacion) {
                 SUMA -> num1 + num2
                 RESTA -> num1 - num2
